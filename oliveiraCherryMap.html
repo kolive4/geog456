@@ -27,8 +27,8 @@
 
             L.geoJSON(unccherries).addTo(map)
             // create custom icon variable
-            var cherryIcon = L.icon({ // notice the L.icon which is a Leaflet object with properties
-            iconUrl: 'https://www.boeschbodenspies.com/wp-content/uploads/2017/08/cherry.png',
+            var cherryIcon = L.Icon.Default.prototype.options.iconUrl = 'https://www.boeschbodenspies.com/wp-content/uploads/2017/08/cherry.png';({ // notice the L.icon which is a Leaflet object with properties
+            // iconUrl: 'https://www.boeschbodenspies.com/wp-content/uploads/2017/08/cherry.png',
             // this points to a png image obtained from the internet
             iconSize: [50,50], // size of the icon
             popupAnchor: [0,0] // where the icon is located relative to the lat lon of the point.
