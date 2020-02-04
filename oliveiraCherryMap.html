@@ -1,0 +1,64 @@
+<html>
+ <head>
+ <title>My Flowering Cherry Map</title>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+ integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+ crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+ integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+ crossorigin=""></script>
+ <script src = "/Users/kyleoliveira4/Desktop/8thSemester/GEOG456/leaflet_tutorial/data/flowering_cherries_4326.geojson"></script>
+ </head>
+ <body>
+    <div id="mapid"></div>
+    <style>
+            #mapid{ width: 900px; height: 500px; }
+    </style>
+    <script>
+            // this means that the following lines will be script
+            // (it could also point to an external script file).
+            var map = L.map('mapid').setView([35.9067, -79.0501], 15); // YOU CAN CHANGE THE ZOOM
+            // this line is creating the variable map by initializing the L.map class (a
+            // Leaflet class) with the mapid element that we created before. setView is a method
+            // that can be applied to the class L.map : you can give it a latitude, longitude
+            // and a zoom. The higher the value of the zoom, the finer the initial scale of the
+            // map.
+
+
+            L.geoJSON(unccherries).addTo(map)
+            // create custom icon variable
+            var cherryIcon = L.icon({ // notice the L.icon which is a Leaflet object with properties
+            iconUrl: 'https://www.boeschbodenspies.com/wp-content/uploads/2017/08/cherry.png',
+            // this points to a png image obtained from the internet
+            iconSize: [50,50], // size of the icon
+            popupAnchor: [0,0] // where the icon is located relative to the lat lon of the point.
+            });
+            //YOU COULD CHANGE the iconURL, iconSize and popupAnchor to see how the map changes
+
+            // create an HTML variable that will pop up with a cherry blossom photo
+            var customPopup = "UNC Cherry Blossom<br/><imgsrc='https://pbs.twimg.com/media/DW-c1u7VoAAafwx.jpg' width='100px'/>";
+            // YOU COULD CHANGE the https link to another picture.
+            // YOU COULD CHANGE the 100px to other values like 50px or 400px to see what happens
+            // the following line should go at the end, before script closing tag
+            L.geoJSON(unccherries, { // a
+            pointToLayer: function (feature, latlng) { // b
+            return L.marker(latlng, {icon: cherryIcon});}}) // c
+            .bindPopup(customPopup) // d
+            .addTo(map); // 
+
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+             attribution: '&copy; <ahref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            // L.tileLayer can display a tile layer. You can check out other tile layer
+            // examples at https://leaflet-extras.github.io/leaflet-providers/preview/. The
+            // location of the tile layer needs to be in single quotes. You can also indicate
+            // the attribution for that layer. In this example we used the Open StreetMap 
+            // attribution. The '&copy; <a> and the other information you see here is HTML code
+            // adding a copyright sign, and making a hyperlink to OpenStreetMap.
+            // At the end we include .addTo(map), which is indicating to add the tile layer
+            // to the variable map. 
+    // end of script
+    </script>
+ </body>
+</html>

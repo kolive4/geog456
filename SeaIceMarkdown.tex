@@ -1,0 +1,466 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Arctic Sea Ice},
+            pdfauthor={Kyle Oliveira, Arianna Torello, Meg VanHorn},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Arctic Sea Ice}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Kyle Oliveira, Arianna Torello, Meg VanHorn}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{1/30/2020}
+
+
+\begin{document}
+\maketitle
+
+\subsection{Sea Ice}\label{sea-ice}
+
+This is an R Markdown document to help walk through the process of our
+code that examines the Arctic sea ice area through the period of
+November 1978 to December 2019.
+
+First, we will need to import our data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{the_file<-}\StringTok{"~/Desktop/8thSemester/GEOG456/data/SeaIceMaster.csv"}
+\NormalTok{df<-}\KeywordTok{read.csv}\NormalTok{(the_file)}
+\end{Highlighting}
+\end{Shaded}
+
+Let's create a better column for the date by combining together the
+month and year columns.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df}\OperatorTok{$}\NormalTok{date <-}\StringTok{ }\KeywordTok{with}\NormalTok{(df, }\KeywordTok{sprintf}\NormalTok{(}\StringTok{"%d-%02d"}\NormalTok{, year, mo))}
+\end{Highlighting}
+\end{Shaded}
+
+We will need a few packages to complete this work so let us install
+those.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyr)}
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(lubridate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'lubridate'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:base':
+## 
+##     date
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{library}\NormalTok{(RColorBrewer)}
+\end{Highlighting}
+\end{Shaded}
+
+Let's also find the average area of the sea ice in our data set. This
+will come in use in our analysis later.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{avg_area <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(df}\OperatorTok{$}\NormalTok{area)}
+\end{Highlighting}
+\end{Shaded}
+
+And let's make the month column a character value instead of a numeric
+value.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mymonths <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Jan"}\NormalTok{,}\StringTok{"Feb"}\NormalTok{,}\StringTok{"Mar"}\NormalTok{,}
+              \StringTok{"Apr"}\NormalTok{,}\StringTok{"May"}\NormalTok{,}\StringTok{"Jun"}\NormalTok{,}
+              \StringTok{"Jul"}\NormalTok{,}\StringTok{"Aug"}\NormalTok{,}\StringTok{"Sep"}\NormalTok{,}
+              \StringTok{"Oct"}\NormalTok{,}\StringTok{"Nov"}\NormalTok{,}\StringTok{"Dec"}\NormalTok{)}
+\NormalTok{df}\OperatorTok{$}\NormalTok{month <-}\StringTok{ }\NormalTok{mymonths[ df}\OperatorTok{$}\NormalTok{mo ]}
+\end{Highlighting}
+\end{Shaded}
+
+Great! Now that we have all of that settled, lets begin to make our
+figures!
+
+For our first figure lets just get a feel for what we're working with.
+Let's create a dot plot that shows the extent of the ice. But we want to
+include area as well, so lets change the size of the dots to reflect how
+area has changed as well. We will want to see how these two features
+have changed over time so lets put the year (our time value) on the
+x-axis and make the color of our dots equal to year as well for an
+aesthetically pleasing gradient.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(df, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ year, }\DataTypeTok{y =}\NormalTok{ extent, }\DataTypeTok{size =}\NormalTok{ area, }\DataTypeTok{color =}\NormalTok{ year)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SeaIceMarkdown_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+That looks great. Let's call this figure our Figure 1. That way when we
+call fig1 it will produce this picture.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fig1<-}\KeywordTok{ggplot}\NormalTok{(df, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ year, }\DataTypeTok{y =}\NormalTok{ extent, }\DataTypeTok{size =}\NormalTok{ area, }\DataTypeTok{color =}\NormalTok{ year)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+It is hard to tell the difference between extent and area in our first
+figure so lets create a line plot that shows how the two differ. Our red
+line will be the area, and the blue line with grey background will be
+the extent of the Arctic sea ice. We'll rename the y-axis to be more
+descriptive, and change the theme so the standard deviation of the
+extent doesn't blend with the background. We won't need a legend since
+the description of colors is in the y-axis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(df)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{year, }\DataTypeTok{y=}\NormalTok{extent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{year, }\DataTypeTok{y=}\NormalTok{area, }\DataTypeTok{color=}\StringTok{"red"}\NormalTok{ ,}\DataTypeTok{fill=}\StringTok{"red"}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{expand_limits}\NormalTok{(}\DataTypeTok{y=}\DecValTok{0}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_bw}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Year"}\NormalTok{,}\DataTypeTok{y=}\StringTok{'Extent(blue)/ Area(red) ('}\OperatorTok{~}\NormalTok{km}\OperatorTok{^}\DecValTok{2}\OperatorTok{~}\NormalTok{x10}\OperatorTok{^}\DecValTok{6}\OperatorTok{*}\StringTok{')'}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}
+    \DataTypeTok{panel.grid.major =} \KeywordTok{element_blank}\NormalTok{(),}
+    \DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(),}
+       \DataTypeTok{legend.position =} \StringTok{"none"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{SeaIceMarkdown_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+Looks great! Lets name this figure 2 and have it saved as such so we can
+call on it when needed.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fig2<-}\KeywordTok{ggplot}\NormalTok{(df)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{year, }\DataTypeTok{y=}\NormalTok{extent))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{year, }\DataTypeTok{y=}\NormalTok{area, }\DataTypeTok{color=}\StringTok{"red"}\NormalTok{ ,}\DataTypeTok{fill=}\StringTok{"red"}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{expand_limits}\NormalTok{(}\DataTypeTok{y=}\DecValTok{0}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_bw}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Year"}\NormalTok{,}\DataTypeTok{y=}\StringTok{'Extent (blue) / Area (red) ('}\OperatorTok{~}\NormalTok{km}\OperatorTok{^}\DecValTok{2}\OperatorTok{~}\NormalTok{x10}\OperatorTok{^}\DecValTok{6}\OperatorTok{*}\StringTok{')'}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}
+    \DataTypeTok{panel.grid.major =} \KeywordTok{element_blank}\NormalTok{(),}
+    \DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(),}
+    \DataTypeTok{legend.position =} \StringTok{"none"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+So now that we've seen how area and extent differ, let's work with just
+area, because it gives a better depiciton of how the ice ice changing as
+a whole and not just how far the ice extends in the Arctic.
+
+Since we are working with just area, let's see how it changes temporally
+(throughout the year) and also how the area has changed over the years.
+To do this we'll create a line plot that shows the temporal changes, but
+each line will be an individual year. To do this, we will need to change
+our year variable into a factor, so we can use it to be individual
+inputs.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df}\OperatorTok{$}\NormalTok{yearf <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(df}\OperatorTok{$}\NormalTok{year)}
+\end{Highlighting}
+\end{Shaded}
+
+Now that that's done, we can make our figure. Don't forget to add units
+to the y-axis so the viewer knows what we're working with.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(df, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{mo, }\DataTypeTok{y=}\NormalTok{area, }\DataTypeTok{color=}\NormalTok{yearf))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{expand_limits}\NormalTok{(}\DataTypeTok{y=}\DecValTok{0}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{coord_cartesian}\NormalTok{(}\DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{12}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month"}\NormalTok{, }\DataTypeTok{y=}\StringTok{'Area ('}\OperatorTok{~}\NormalTok{km}\OperatorTok{^}\DecValTok{2}\OperatorTok{~}\NormalTok{x10}\OperatorTok{^}\DecValTok{6}\OperatorTok{*}\StringTok{')'}\NormalTok{, }\DataTypeTok{color=}\StringTok{"Year"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_classic}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SeaIceMarkdown_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+Wow! You can really see how the ice area reaches a low point in the late
+summer and early fall months. You can also really see how in recent
+years the ice area has been much less than in earlier years in the data
+set.
+
+Let's save this figure as figure 3 for later.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fig3<-}\KeywordTok{ggplot}\NormalTok{(df, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{mo, }\DataTypeTok{y=}\NormalTok{area, }\DataTypeTok{color=}\NormalTok{year))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{expand_limits}\NormalTok{(}\DataTypeTok{y=}\DecValTok{0}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{coord_cartesian}\NormalTok{(}\DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{12}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month"}\NormalTok{, }\DataTypeTok{y=}\StringTok{'Area ('}\OperatorTok{~}\NormalTok{km}\OperatorTok{^}\DecValTok{2}\OperatorTok{~}\NormalTok{x10}\OperatorTok{^}\DecValTok{6}\OperatorTok{*}\StringTok{')'}\NormalTok{, }\DataTypeTok{color=}\StringTok{"Year"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_classic}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Let's play around a bit and make an aesthetically pleasing graph that
+really makes the viewer interested and want to ask more. A good way to
+do this would be to create a circular graph that can show how the ice
+has grown and shrunk with respect to its average ice area (which we
+calculated earlier). So if we create a histogram and wrap that around a
+central point, we can end up with this type of graph. The graph will
+begin with November 1978 being at the very top of the graph and will
+circle all the way around so December of 2019 will be the last entry.
+Think of this graph as a clock with November of 1978 as 12:00 and with
+December of 2019 as 11:59.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(df)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{date, }\DataTypeTok{y=}\NormalTok{area}\OperatorTok{-}\NormalTok{avg_area, }\DataTypeTok{fill =}\NormalTok{ area}\OperatorTok{-}\NormalTok{avg_area), }\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_gradientn}\NormalTok{(}\DataTypeTok{colours =} \KeywordTok{colorRampPalette}\NormalTok{(}\KeywordTok{brewer.pal}\NormalTok{(}\DecValTok{11}\NormalTok{, }\StringTok{"RdBu"}\NormalTok{))(}\DecValTok{11}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_minimal}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}
+    \DataTypeTok{axis.text.x =} \KeywordTok{element_blank}\NormalTok{(),}
+    \DataTypeTok{axis.title.x =} \KeywordTok{element_blank}\NormalTok{(),}
+    \DataTypeTok{panel.grid.major =} \KeywordTok{element_blank}\NormalTok{(),}
+    \DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(),}
+\NormalTok{  )}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_discrete}\NormalTok{(}\DataTypeTok{name=}\StringTok{'Area ('}\OperatorTok{~}\NormalTok{km}\OperatorTok{^}\DecValTok{2}\OperatorTok{~}\NormalTok{x10}\OperatorTok{^}\DecValTok{6}\OperatorTok{*}\StringTok{')'}\NormalTok{, }\DataTypeTok{limits=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{7}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Area Difference of Arctic Sea Ice over time (1978-2019)"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{'Area ('}\OperatorTok{~}\NormalTok{km}\OperatorTok{^}\DecValTok{2}\OperatorTok{~}\NormalTok{x10}\OperatorTok{^}\DecValTok{6}\OperatorTok{*}\StringTok{')'}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{coord_polar}\NormalTok{(}\DataTypeTok{theta =} \StringTok{"x"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SeaIceMarkdown_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+This is really cool! In this graph we can see how the ice switches back
+and forth between negative and positive values for ice area throughout
+the years. But what really stands out is how much shorter positive
+values have gotten in recent years and also how much deeper negative
+values go in recent years as well. We see a much deeper red from about
+9:00 onward to 11:59. Looking at this graph we can see the fluctuation
+of ice area really well, and also the yearly trends in decreased ice
+area.
+
+Let's save this figure as figure 4.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fig4<-}\KeywordTok{ggplot}\NormalTok{(df)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{date, }\DataTypeTok{y=}\NormalTok{area}\OperatorTok{-}\NormalTok{avg_area, }\DataTypeTok{fill =}\NormalTok{ area}\OperatorTok{-}\NormalTok{avg_area), }\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_gradientn}\NormalTok{(}\DataTypeTok{colours =} \KeywordTok{colorRampPalette}\NormalTok{(}\KeywordTok{brewer.pal}\NormalTok{(}\DecValTok{11}\NormalTok{, }\StringTok{"RdBu"}\NormalTok{))(}\DecValTok{11}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_minimal}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}
+    \DataTypeTok{axis.text.x =} \KeywordTok{element_blank}\NormalTok{(),}
+    \DataTypeTok{axis.title.x =} \KeywordTok{element_blank}\NormalTok{(),}
+    \DataTypeTok{panel.grid.major =} \KeywordTok{element_blank}\NormalTok{(),}
+    \DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(),}
+\NormalTok{  )}\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_discrete}\NormalTok{(}\DataTypeTok{name=}\StringTok{'Area ('}\OperatorTok{~}\NormalTok{km}\OperatorTok{^}\DecValTok{2}\OperatorTok{~}\NormalTok{x10}\OperatorTok{^}\DecValTok{6}\OperatorTok{*}\StringTok{')'}\NormalTok{, }\DataTypeTok{limits=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{7}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Area Difference of Arctic Sea Ice over time (1978-2019)"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{'Area ('}\OperatorTok{~}\NormalTok{km}\OperatorTok{^}\DecValTok{2}\OperatorTok{~}\NormalTok{x10}\OperatorTok{^}\DecValTok{6}\OperatorTok{*}\StringTok{')'}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{coord_polar}\NormalTok{(}\DataTypeTok{theta =} \StringTok{"x"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Lets see all four of our figures in one place to end this walk-through.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fig1}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SeaIceMarkdown_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fig2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{SeaIceMarkdown_files/figure-latex/unnamed-chunk-15-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fig3}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SeaIceMarkdown_files/figure-latex/unnamed-chunk-15-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fig4}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SeaIceMarkdown_files/figure-latex/unnamed-chunk-15-4.pdf}
+
+These plots are unique and fun ways to visual changes in Sea Ice extent
+and area over time. We hope you've enjoyed coding with us, and have
+learned a bit more about plotting in RStudio!
+
+Acknowledgments: Thanks to the National Snow and Ice Data Center for
+collecting the Sea Ice Index data, which we utilized in this program.
+
+
+\end{document}
