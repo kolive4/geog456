@@ -40,9 +40,9 @@
             // the following line should go at the end, before script closing tag
             L.geoJSON(unccherries, { // a
             pointToLayer: function (feature, latlng) { // b
-            return L.marker(latlng, {icon: cherryIcon});}}) // c
-            .bindPopup(customPopup) // d
-            .addTo(map); // 
+            return L.marker(latlng, {icon: cherryIcon});}}).bindPopup(customPopup).addTo(map) // c
+            // .bindPopup(customPopup) // d
+            // .addTo(map); // 
 
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
