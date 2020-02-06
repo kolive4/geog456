@@ -47,10 +47,11 @@
             // YOU COULD CHANGE the https link to another picture.
             // YOU COULD CHANGE the 100px to other values like 50px or 400px to see what happens
             // the following line should go at the end, before script closing tag
+            var customOptions = {'classname': 'custom'}
             L.geoJSON(unccherries, { // a
             pointToLayer: function (feature, latlng) { // b
             return L.marker(latlng, {icon: cherryIcon});}}) // c
-            .bindPopup(customPopup) // d
+            .bindPopup(customPopup, customOptions) // d
             .addTo(map); // 
 
 
