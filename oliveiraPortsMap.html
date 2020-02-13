@@ -1,0 +1,49 @@
+<html>
+    <style>
+        body{
+            background-image: url(https://global.hurtigruten.com/globalassets/photos/ports/svolvar/2500x1250_svolvaer_harbor-in-the-evening_jorg-herrmann_guest-image.jpg?width=1900&height=950&transform=DownFill)
+        }
+    </style>
+    <head>
+        <title>The Ports of the United States</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+        <script src = "data/Principal_Port.geojson"></script>
+    </head>
+    <body style="background-image: https://global.hurtigruten.com/globalassets/photos/ports/svolvar/2500x1250_svolvaer_harbor-in-the-evening_jorg-herrmann_guest-image.jpg?width=1900&height=950&transform=DownFill">
+        <h1 align = "center", style="color: blue">Ports of the World</h1>
+        <p align = "center", style = "color: gold">This map aims to show all of the ports in the United States.</p>
+        <div id="mapid"; style = "id-align:center",></div>
+        <style>
+                #mapid{ width: 1200px; height: 550px; margin: auto; }
+        </style>
+        <script>
+                var map = L.map('mapid').setView([48.5260, -105.2551], 3.2); 
+
+                var ship = L.icon ({ 
+                iconUrl: 'https://library.kissclipart.com/20180901/xkq/kissclipart-steering-icon-clipart-car-motor-vehicle-steering-w-77c3776ac0a58d06.png',
+                iconSize: [50,50], 
+                popupAnchor: [0,0]
+                });
+    
+                var shipPort = "Ahoy Sailor! Welcome to port!<br/><img src='https://image.shutterstock.com/z/stock-photo-portrait-of-a-ship-captain-with-gray-hair-116991670.jpg' width='250px'/>";
+
+                L.geoJSON(ports, {
+                pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, {icon: ship});}})
+                .bindPopup(shipPort)
+                .addTo(map);
+    
+    
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                 attribution: '&copy; <ahref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+        </script>
+        <p align= "left", style="color: white">Map by: Kyle Oliveira</p>
+        <p align= "left", style="color: white">GEOG 456 | 12 February 2020</p>
+    </body>
+</html>
