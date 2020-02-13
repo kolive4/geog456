@@ -29,16 +29,13 @@
                 iconSize: [50,50], 
                 popupAnchor: [0,0]
                 });
-    
-                L.geoJSON(ports, {
-                pointToLayer: function (feature, layer) {
-                return L.marker(layer, {icon: ship});}})
-                .addTo(map);
 
                 L.geoJSON(ports, {
                     onEachFeature: function (feature, layer) {
                         layer.bindPopup('<h1 align = "center">Ahoy, Sailor! Welcome to port!</h1><h2 align = "center">'+feature.properties.PORT_NAME+'</h2>'+"<br/><img src='https://image.shutterstock.com/z/stock-photo-portrait-of-a-ship-captain-with-gray-hair-116991670.jpg' width='300px'/>");
-                    }
+                    },
+                    pointToLayer: function (feature, layer) {
+                    return L.marker(layer, {icon: ship});}
                 }).addTo(map);
     
     
