@@ -1,3 +1,4 @@
+  
 <html>
     <style>
         body{
@@ -30,20 +31,15 @@
                 popupAnchor: [0,0]
                 });
     
-                //var shipPort = "<img src='https://image.shutterstock.com/z/stock-photo-portrait-of-a-ship-captain-with-gray-hair-116991670.jpg' width='250px'/>";
-                
-                 //<p>+feature.properties.PORT_NAME+</p>";
+                var shipPort = "Ahoy Sailor! Welcome to port!<br/><img src='https://image.shutterstock.com/z/stock-photo-portrait-of-a-ship-captain-with-gray-hair-116991670.jpg' width='250px'/>";
+
+                //var shipPort = '<h1 align = "center">Ahoy, Sailor! Welcome to port!</h1><h2 align = "center">'+feature.properties.PORT_NAME+'</h2>'+"<br/><img src='https://image.shutterstock.com/z/stock-photo-portrait-of-a-ship-captain-with-gray-hair-116991670.jpg' width='300px'/>";
 
                 L.geoJSON(ports, {
-                pointToLayer: function (feature, layer) {
-                return L.marker(layer, {icon: ship});}})
+                pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, {icon: ship});}})
+                .bindPopup(shipPort)
                 .addTo(map);
-
-                L.geoJSON(ports, {
-                    onEachFeature: function (feature, layer) {
-                        layer.bindPopup('<h1 align = "center">Ahoy, Sailor! Welcome to port!</h1><h2 align = "center">'+feature.properties.PORT_NAME+'</h2>'+"<br/><img src='https://image.shutterstock.com/z/stock-photo-portrait-of-a-ship-captain-with-gray-hair-116991670.jpg' width='300px'/>");
-                    }
-                }).addTo(map);
     
     
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
