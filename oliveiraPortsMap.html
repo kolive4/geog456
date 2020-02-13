@@ -12,9 +12,9 @@
         <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
         integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
         crossorigin=""></script>
-        <link rel="stylesheet" href="./clustermodules/MarkerCluster.css">
-        <link rel="stylesheet" href="./clustermodules/MarkerCluster.Default.css">
-        <script src="./clustermodules/leaflet.markercluster-src.js"></script>
+        <link rel="stylesheet" href="./clustermodules copy/MarkerCluster.css">
+        <link rel="stylesheet" href="./clustermodules copy/MarkerCluster.Default.css">
+        <script src="./clustermodules copy/leaflet.markercluster-src.js"></script>
         <script src = "data/Principal_Port.geojson"></script>
     </head>
     <body style="background-image: https://global.hurtigruten.com/globalassets/photos/ports/svolvar/2500x1250_svolvaer_harbor-in-the-evening_jorg-herrmann_guest-image.jpg?width=1900&height=950&transform=DownFill">
@@ -25,7 +25,7 @@
                 #mapid{ width: 1200px; height: 550px; margin: auto; }
         </style>
         <script>
-                var map = L.map('mapid').setView([48.5260, -105.2551], 3.2); 
+                var map = L.map('mapid', {maxZoom:20, minZoom:1}).setView([48.5260, -105.2551], 3.2); 
 
                 var ship = L.icon ({ 
                 iconUrl: 'https://library.kissclipart.com/20180901/xkq/kissclipart-steering-icon-clipart-car-motor-vehicle-steering-w-77c3776ac0a58d06.png',
