@@ -30,10 +30,6 @@
                 popupAnchor: [0,0]
                 });
     
-                //var shipPort = "<img src='https://image.shutterstock.com/z/stock-photo-portrait-of-a-ship-captain-with-gray-hair-116991670.jpg' width='250px'/>";
-                
-                 //<p>+feature.properties.PORT_NAME+</p>";
-
                 L.geoJSON(ports, {
                 pointToLayer: function (feature, layer) {
                 return L.marker(layer, {icon: ship});}})
