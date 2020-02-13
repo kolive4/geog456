@@ -16,7 +16,7 @@
     </head>
     <body style="background-image: https://global.hurtigruten.com/globalassets/photos/ports/svolvar/2500x1250_svolvaer_harbor-in-the-evening_jorg-herrmann_guest-image.jpg?width=1900&height=950&transform=DownFill">
         <h1 align = "center", style="color: blue">Ports of the World</h1>
-        <p align = "center", style = "color: gold">This map aims to show all of the ports in the United States.</p>
+        <p align = "center", style = "color: white">This map aims to show all of the ports in the United States.</p>
         <div id="mapid"; style = "id-align:center",></div>
         <style>
                 #mapid{ width: 1200px; height: 550px; margin: auto; }
@@ -42,8 +42,7 @@
                 }).addTo(map);
     
     
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                 attribution: '&copy; <ahref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                L.tileLayer('https://maps.heigit.org/openmapsurfer/tiles/roads/webmercator/{z}/{x}/{y}.png', {maxZoom: 19, attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> | Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 }).addTo(map);
         </script>
         <p align= "left", style="color: white">Map by: Kyle Oliveira</p>
