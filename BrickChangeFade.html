@@ -1,0 +1,35 @@
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-content w3-section" style="max-width:500px">
+  <p>Watch as the slideshow fades in and out of 5 images showing the change in the town of Brick, New Jersey through the years 1985, 1995, 2000, 2005, and 2019.</p>
+
+  <img class="mySlides w3-animate-fading" src="/Users/kyleoliveira4/Desktop/8thSemester/GEOG456/GitHub/geog456/BrickMaps/Y1985.png" style="width:100%">
+  <img class="mySlides w3-animate-fading" src="/Users/kyleoliveira4/Desktop/8thSemester/GEOG456/GitHub/geog456/BrickMaps/Y1995.png" style="width:100%">
+  <img class="mySlides w3-animate-fading" src="/Users/kyleoliveira4/Desktop/8thSemester/GEOG456/GitHub/geog456/BrickMaps/Y2000.png" style="width:100%">
+  <img class="mySlides w3-animate-fading" src="/Users/kyleoliveira4/Desktop/8thSemester/GEOG456/GitHub/geog456/BrickMaps/Y2005.png" style="width:100%">
+  <img class="mySlides w3-animate-fading" src="/Users/kyleoliveira4/Desktop/8thSemester/GEOG456/GitHub/geog456/BrickMaps/Y2019.png" style="width:100%">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 9000);    
+}
+</script>
+
+</body>
+</html>

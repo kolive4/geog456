@@ -1,0 +1,78 @@
+<html>
+<title>The Developing Change in Brick, New Jersey</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none;}
+</style>
+<body align = "center">
+  <h1> The Change in Brick, New Jersey 1985-2019</h1>
+  <p>Click on the images taken from 1985-2019 to experience how the town of Brick, New Jersey has developed over the past 35 years.</p>
+
+
+<div class="mySlides", ,>
+    <img src="/Users/kyleoliveira4/Desktop/8thSemester/GEOG456/GitHub/geog456/BrickMaps/Y1985.png"     style="width:80%">
+    <div class="year">
+    1985  
+    </div>
+</div>
+
+<div class="mySlides", ,>
+
+    <img src="/Users/kyleoliveira4/Desktop/8thSemester/GEOG456/GitHub/geog456/BrickMaps/Y1995.png" style="width:80%">
+    <div class="year">
+      1995
+    </div>
+
+</div>
+
+<div class="mySlides", ,>
+    <img src="/Users/kyleoliveira4/Desktop/8thSemester/GEOG456/GitHub/geog456/BrickMaps/Y2000.png"  style="width:80%">
+    <div class="year">
+     2000
+    </div>
+</div>
+
+<div class="mySlides", ,>
+    <img src="/Users/kyleoliveira4/Desktop/8thSemester/GEOG456/GitHub/geog456/BrickMaps/Y2005.png" style="width:80%">
+    <div class="year">
+     2005
+    </div>
+
+</div>
+
+<div class="mySlides", ,>
+    <img src="/Users/kyleoliveira4/Desktop/8thSemester/GEOG456/GitHub/geog456/BrickMaps/Y2019.png" style="width:80%">
+    <div class="year">
+      2019
+    </div>
+</div>
+
+<button onclick="plusDivs(-1)">&#10094;</button>
+<button onclick="plusDivs(1)">&#10095;</button>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+<left>
+  <p >Map by: Kyle Oliveira</p>
+  <p >GEOG 456 | 3 April 2020</p>
+</left>
+</body>
+</html>
