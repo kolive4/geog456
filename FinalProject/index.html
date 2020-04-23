@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        #map {
+            width: 817px;
+            height: 648px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[39.4939353047,-74.3142709627],[39.5402246738,-74.2376130942]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var img_C3907430SES63273_0 = 'data/C3907430SES63273_0.png';
+        var img_bounds_C3907430SES63273_0 = [[39.4973024956,-74.3166534807],[39.5652955334,-74.2453694143]];
+        var overlay_C3907430SES63273_0 = new L.imageOverlay(img_C3907430SES63273_0, img_bounds_C3907430SES63273_0);
+        bounds_group.addLayer(overlay_C3907430SES63273_0);
+        map.addLayer(overlay_C3907430SES63273_0);
+        var img_2002_georef2_1 = 'data/2002_georef2_1.png';
+        var img_bounds_2002_georef2_1 = [[39.4860841334,-74.3229901414],[39.5641773404,-74.2304990595]];
+        var overlay_2002_georef2_1 = new L.imageOverlay(img_2002_georef2_1, img_bounds_2002_georef2_1);
+        bounds_group.addLayer(overlay_2002_georef2_1);
+        map.addLayer(overlay_2002_georef2_1);
+        var img_1989_georef2_2 = 'data/1989_georef2_2.png';
+        var img_bounds_1989_georef2_2 = [[39.4964518074,-74.3021580816],[39.5443304999,-74.2535677008]];
+        var overlay_1989_georef2_2 = new L.imageOverlay(img_1989_georef2_2, img_bounds_1989_georef2_2);
+        bounds_group.addLayer(overlay_1989_georef2_2);
+        map.addLayer(overlay_1989_georef2_2);
+        var img_1973_georef2_3 = 'data/1973_georef2_3.png';
+        var img_bounds_1973_georef2_3 = [[39.4578878915,-74.3343546684],[39.5553895239,-74.2293970742]];
+        var overlay_1973_georef2_3 = new L.imageOverlay(img_1973_georef2_3, img_bounds_1973_georef2_3);
+        bounds_group.addLayer(overlay_1973_georef2_3);
+        map.addLayer(overlay_1973_georef2_3);
+        setBounds();
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>
